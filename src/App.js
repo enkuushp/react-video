@@ -15,14 +15,24 @@ function App() {
 
   return (
     <div>
-      <video className={videClass} autoPlay muted playsInline loop>
-        <source src={video} type="video/mp4" />
-        <track src="captions_en.vtt" kind="captions" srcLang="en" label="english_captions" />
-      </video>
-      <video className={videClass} autoPlay muted playsInline loop>
-        <source src={videoMobile} type="video/mp4" />
-        <track src="captions_en.vtt" kind="captions" srcLang="en" label="english_captions" />
-      </video>
+      <div
+        dangerouslySetInnerHTML={{
+        __html: `
+          <video className=${videClass} autoPlay muted playsInline loop>
+            <source src=${video} type="video/mp4" />
+            <track src="captions_en.vtt" kind="captions" srcLang="en" label="english_captions" />
+          </video>`
+      }}
+      />
+      <div
+        dangerouslySetInnerHTML={{
+        __html: `
+          <video className=${videClass} autoPlay muted playsInline loop>
+            <source src=${videoMobile} type="video/mp4" />
+            <track src="captions_en.vtt" kind="captions" srcLang="en" label="english_captions" />
+          </video>`
+        }}
+      />
     </div>
   );
 }
